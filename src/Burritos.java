@@ -1,17 +1,14 @@
-import java.util.HashMap;
 import java.util.Random;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Burritos {
     public static void main(String[] args) {
         // declare string array variables for each category, including their string names
         Random random = new Random();
-        String[] rice = {"none", "all", "white rice", "brown rice"};
-        String[] meat = {"none", "all", "chicken", "steak", "carnitas", "chorizo", "sofritas", "veggie meat"};
-        String[] beans = {"none", "all", "pinto beans", "black beans",};
-        String[] salsa = { "none", "all", "mild salsa", "medium salsa", "hot salsa"};
-        String[] veggies = { "none", "all", "lettuce", "fajita veggies"};
+        String[] rice = {"none", "all rice", "white rice", "brown rice"};
+        String[] meat = {"none", "all meat", "chicken", "steak", "carnitas", "chorizo", "sofritas", "veggie meat"};
+        String[] beans = {"none", "all beans", "pinto beans", "black beans",};
+        String[] salsa = { "none", "all salsa", "mild salsa", "medium salsa", "hot salsa"};
+        String[] veggies = { "none", "all veggies", "lettuce", "fajita veggies"};
         String[][] basics = {rice, meat, beans, salsa, veggies};
         String[] basicStr = {"rice", "meat", "beans", "salsa", "veggies"};
         String[] toppings = {"cheese", "guac", "queso", "sour cream"};
@@ -31,7 +28,7 @@ public class Burritos {
                 if (randomIdx == 0) {
                     thisBurrito += "no " + basicStr[k] + ", ";
                 } else if (randomIdx == 1) {
-                    thisBurrito += "all " + basicStr[k] + ", ";
+                    thisBurrito +=  basics[k][randomIdx] + ", ";
                     cost += 0.50;
                 } else {
                     thisBurrito += (basics[k][randomIdx]) + ", ";
