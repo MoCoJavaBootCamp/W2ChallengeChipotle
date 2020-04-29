@@ -5,83 +5,59 @@ import java.util.Arrays;
 
 public class Burritos {
     public static void main(String[] args) {
+        // declare string array variables for each category, including their string names
         Random random = new Random();
-        HashMap<String, String> preparedBurritos = new HashMap<String, String>();
-        String[] rice = {"none", "all", "white", "brown"};
+        String[] rice = {"none", "all", "white rice", "brown rice"};
         String[] meat = {"none", "all", "chicken", "steak", "carnitas", "chorizo", "sofritas", "veggie meat"};
         String[] beans = {"none", "all", "pinto beans", "black beans",};
-        String[] salsa = { "none", "all", "mild", "medium", "hot"};
+        String[] salsa = { "none", "all", "mild salsa", "medium salsa", "hot salsa"};
         String[] veggies = { "none", "all", "lettuce", "fajita veggies"};
         String[][] basics = {rice, meat, beans, salsa, veggies};
         String[] basicStr = {"rice", "meat", "beans", "salsa", "veggies"};
         String[] toppings = {"cheese", "guac", "queso", "sour cream"};
 
-//        String cheese = "cheese";
-//        String guac = "quac";
-//        String queso = "queso";
-//        String sourCream = "sour cream";
-        int numOfIngredients = 0;
-        String thisBurrito = "";
-
-        // iterate 25x
-            // get randomInt for rice, meat, beans, salsa veggies (4 iterations)
-                // if randomInt is 0,
-                    // string += "no [category]"
-                // else if randomInt is 1
-                    // thisBurrito += "all [category]"
-                    // numOfIngredients += 1
-                // else
-                    // numOfIngredients += 1
-                    // thisBurrito += "item"
-            // finished burrito
-                //put to HashMap
-        // make 25 burritos
+        // loop 25x to make burritos
         for (int i = 0; i < 25; i += 1) {
-            String iStr = String.valueOf(i + 1);
-            // get random basics (rice, meat, beans, salsa, veggies)
+            int numOfIngredients = 0;
+            double cost = 3.00;
+            String thisBurrito = "Burrito " + String.valueOf(i + 1) + ": ";
+
+            // get random index for basics array (rice, meat, beans, salsa, veggies)
+            // appropriately increment for ingredient count, cost
+            // appropriately build string of burrito ingredients
             for (int k = 0; k < 5; k += 1) {
                 int randomIdx = random.nextInt(basics[k].length);
 
                 if (randomIdx == 0) {
                     thisBurrito += "no " + basicStr[k] + ", ";
-                    break;
-                }
-                if (randomIdx == 1) {
+                } else if (randomIdx == 1) {
                     thisBurrito += "all " + basicStr[k] + ", ";
+                    cost += 0.50;
                 } else {
                     thisBurrito += (basics[k][randomIdx]) + ", ";
+                    cost += 0.50;
                 }
                 numOfIngredients += 1;
             }
 
-            // get toppings (cheese, guac, queso, sour cream)
+            // get toppings using random boolean (cheese, guac, queso, sour cream)
+            // appropriately increment for ingredient count, cost
+            // appropriately build string of burrito ingredients
             for (int m = 0; m < toppings.length; m += 1) {
                 boolean addTopping = random.nextBoolean();
                 if (addTopping) {
                     thisBurrito += toppings[m] + ", ";
                     numOfIngredients += 1;
+                    cost += 0.50;
                 }
             }
-            preparedBurritos.put("Burrito " + iStr, thisBurrito);
-        }
 
-        System.out.println(preparedBurritos);
+            // remove trailing comma and space from end of string
+            thisBurrito = thisBurrito.substring(0, thisBurrito.length() - 2);
+
+            // print burrito number, ingredients and cost
+            System.out.printf("%s \t\t$%.2f\n", thisBurrito, (cost));
+        }
     }
 
-//    public static String getRandomIngredient(String[] category, int ingredientCount) {
-//        Random random = new Random();
-//        int randomIdx = random.nextInt(category.length);
-//        if (randomIdx == 1) {
-//            ingredientCount += category.length - 2;
-//        }
-//        return
-//    }
-//
-//    public static int countIngredients(int ingredientCount) {
-//
-//    }
-//
-//    public static double calcPrice(int ingredients) {
-//        return (0.50 * ingredients) + 3;
-//    }
 }
