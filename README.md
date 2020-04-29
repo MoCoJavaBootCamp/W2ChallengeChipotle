@@ -1,14 +1,19 @@
 # Week 2 Challenge: Chipotle Burritos
+## About
+Chipotle Jr Plus+ is a robot that can produce a burrito with a set of random ingredients.<br>
+Each burrito will have 5-9 ingredients, each costing $0.50, in the following categories:
+* Rice
+* Meat
+* Beans
+* Salsa
+* Veggies<br><br>
+And Toppings like:<br><br>
+* Cheese
+* Guac
+* Queso
+* Sour Cream
 
-// iterate 25x
-// get randomInt for rice, meat, beans, salsa veggies (4 iterations)
-// if randomInt is 0,
-// string += "no [category]"
-// else if randomInt is 1
-// thisBurrito += "all [category]"
-// numOfIngredients += 1
-// else
-// numOfIngredients += 1
-// thisBurrito += "item"
-// finished burrito
-//put to HashMap
+## Getting Started
+* Clone repo
+* Build project
+* Run code
